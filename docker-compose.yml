@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  app:
+    build: .
+    # restart: unless-stopped
+    env_file: ./.env
+    ports:
+      - $NODE_LOCAL_PORT:$NODE_DOCKER_PORT
+    volumes:
+      - .:/react-vite-veterinaria
+    command: sh -c "cd react-citas && npm install && npm run dev"
+    #command: sh -c "tail -F something"
