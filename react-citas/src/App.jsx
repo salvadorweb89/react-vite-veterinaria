@@ -6,11 +6,11 @@ import ListadoPacientes from "./components/ListadoPacientes";
 function App() {
 
   return (
-    <>
+    <div className="container mx-auto mt-4">
       <Header />
       <Formulario />
       <ListadoPacientes />
-    </>
+    </div>
   )
 }
 
