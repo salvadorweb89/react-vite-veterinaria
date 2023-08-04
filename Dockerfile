@@ -4,7 +4,7 @@ WORKDIR /react-vite-veterinaria
 # COPY package.json .
 # RUN npm install
 
-EXPOSE 3000
+EXPOSE 5173
 
 COPY . .
 # CMD npm start
