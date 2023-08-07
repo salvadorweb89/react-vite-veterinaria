@@ -2,7 +2,7 @@ import React from 'react';
 
 const Formulario = () => {
   return (
-    <div className="md:w-1/2 lg:w-2/5">
+    <div className="sm:w-full md:w-1/2 lg:w-2/5">
       <h2 className="font-bold text-center text-3xl">Seguimiento de pacientes</h2>
       <p className="text-lg mt-5 text-center mb-10">
         Añadir y administrar pacientes.
