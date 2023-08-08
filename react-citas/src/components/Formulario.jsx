@@ -7,13 +7,22 @@ const Formulario = () => {
   const [fechaAlta, setFechaAlta] = useState('');
   const [sintomas, setSintomas] = useState('');
 
+  const handleSubmitForm = (e) => {
+    e.preventDefault();
+    
+    //Validamos los campos del formulario
+    if([nombreMascota, nombrePropietario, email, fechaAlta, sintomas].includes('')) {
+      console.error('No puede haber ningún campo de formulario vacío')
+    }
+  }
+
   return (
     <div className="sm:w-full md:w-1/2 lg:w-2/5 sm:mb-10">
       <h2 className="font-bold text-center text-3xl">Seguimiento de pacientes</h2>
       <p className="text-lg mt-5 text-center mb-10">
         Añadir y administrar pacientes.
       </p>
-      <form className="bg-white shadow-md p-5 rounded-md">
+      <form className="bg-white shadow-md p-5 rounded-md" onSubmit={ handleSubmitForm }>
         <div className="mb-5">
           <label htmlFor="input-nombre-mascota" className="block">Nombre mascota</label>
           <input id="input-nombre-mascota" className="w-full border-2 p-2 mt-2 rounded-md" 
