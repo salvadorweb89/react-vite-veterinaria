@@ -1,4 +1,3 @@
-import React from 'react';
 import Paciente from './Paciente';
 const ListadoPacientes = () => {
   return (
