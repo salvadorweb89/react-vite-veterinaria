@@ -1,6 +1,7 @@
+/* eslint-disable react/prop-types */
 import { useState } from 'react';
 
-const Formulario = () => {
+const Formulario = ({ pacientes,setPacientes }) => {
   const [nombreMascota, setNombreMascota] = useState('');
   const [nombrePropietario, setNombrePropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -21,6 +22,27 @@ const Formulario = () => {
 
       // Restablecemos el state de error en caso de que todo esté ok
       setError(false);
+      
+      // Creamos un objeto con los campos de paciente. Con la nueva sintaxis de JS no es necesario definir llave/valor.
+
+      const valoresPaciente = {
+        nombreMascota, 
+        nombrePropietario, 
+        email, 
+        fechaAlta, 
+        sintomas
+      }
+
+      // Agregamos los valores de paciente al state pacientes mediante spread operator para conservar inmutabilidad
+      setPacientes([...pacientes, valoresPaciente]);
+
+      // Reiniciamos el formulario
+      setNombreMascota('');
+      setNombrePropietario('');
+      setEmail('');
+      setFechaAlta('');
+      setSintomas('');
+
     }
   }
 
