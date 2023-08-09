@@ -7,12 +7,20 @@ const Formulario = () => {
   const [fechaAlta, setFechaAlta] = useState('');
   const [sintomas, setSintomas] = useState('');
 
+  const [error, setError] = useState(false);
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
     
     //Validamos los campos del formulario
     if([nombreMascota, nombrePropietario, email, fechaAlta, sintomas].includes('')) {
+      setError(true);
       console.error('No puede haber ningún campo de formulario vacío')
+    }
+    else{
+
+      // Restablecemos el state de error en caso de que todo esté ok
+      setError(false);
     }
   }
 
@@ -23,6 +31,11 @@ const Formulario = () => {
         Añadir y administrar pacientes.
       </p>
       <form className="bg-white shadow-md p-5 rounded-md" onSubmit={ handleSubmitForm }>
+        { error && 
+          <div className="bg-red-300 text-center p-2 mb-5 text-red-950 rounded-md">
+            Todos los campos son obligatorios
+          </div>
+        }
         <div className="mb-5">
           <label htmlFor="input-nombre-mascota" className="block">Nombre mascota</label>
           <input id="input-nombre-mascota" className="w-full border-2 p-2 mt-2 rounded-md" 
