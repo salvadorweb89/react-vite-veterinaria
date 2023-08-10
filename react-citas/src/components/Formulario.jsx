@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from 'react';
+import MsgError from './MsgError';
 
 const Formulario = ({ pacientes,setPacientes }) => {
   const [nombreMascota, setNombreMascota] = useState('');
@@ -53,11 +54,7 @@ const Formulario = ({ pacientes,setPacientes }) => {
         Añadir y administrar pacientes.
       </p>
       <form className="bg-white shadow-md p-5 rounded-md" onSubmit={ handleSubmitForm }>
-        { error && 
-          <div className="bg-red-300 text-center p-2 mb-5 text-red-950 rounded-md">
-            Todos los campos son obligatorios
-          </div>
-        }
+        { error && <MsgError>Todos los campos son obligatorios</MsgError> }
         <div className="mb-5">
           <label htmlFor="input-nombre-mascota" className="block">Nombre mascota</label>
           <input id="input-nombre-mascota" className="w-full border-2 p-2 mt-2 rounded-md" 
