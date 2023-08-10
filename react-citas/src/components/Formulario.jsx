@@ -1,5 +1,5 @@
-/* eslint-disable react/prop-types */
 import { useState } from 'react';
+import PropTypes from 'prop-types';
 import MsgError from './MsgError';
 
 const Formulario = ({ pacientes,setPacientes }) => {
@@ -100,6 +100,11 @@ const Formulario = ({ pacientes,setPacientes }) => {
       </form>
     </div>
   );
+}
+
+Formulario.propTypes = {
+  pacientes: PropTypes.array.isRequired,
+  setPacientes: PropTypes.func.isRequired
 }
 
 export default Formulario;
