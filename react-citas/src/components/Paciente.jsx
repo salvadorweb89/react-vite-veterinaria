@@ -26,6 +26,12 @@ const Paciente = ({ paciente }) => {
           Síntomas: {''}
           <span className="font-normal normal-case">{sintomas}</span>
         </p>
+        <div>
+          <button className="bg-indigo-600 w-1/2 p-2 uppercase text-white font-bold cursor-pointer
+           hover:bg-indigo-500 rounded-tl-md rounded-bl-md transition-all">Editar</button>
+           <button className="bg-red-500 w-1/2 p-2 uppercase text-white font-bold cursor-pointer
+           hover:bg-red-400 rounded-tr-md rounded-br-md transition-all">Eliminar</button>
+        </div>
       </div>
   );
 }
