@@ -11,6 +11,13 @@ const Formulario = ({ pacientes,setPacientes }) => {
 
   const [error, setError] = useState(false);
 
+  const generateId = () => {
+    const rand = Math.random().toString(36).substr(2);
+    const time = Date.now().toString(36);
+
+    return rand + time;
+  }
+
   const handleSubmitForm = (e) => {
     e.preventDefault();
     
@@ -31,7 +38,8 @@ const Formulario = ({ pacientes,setPacientes }) => {
         nombrePropietario, 
         email, 
         fechaAlta, 
-        sintomas
+        sintomas,
+        id: generateId()
       }
 
       // Agregamos los valores de paciente al state pacientes mediante spread operator para conservar inmutabilidad
