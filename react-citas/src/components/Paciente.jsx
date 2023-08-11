@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 
-const Paciente = ({ paciente }) => {
+const Paciente = ({ paciente, setPaciente }) => {
 
   const {nombreMascota, nombrePropietario, fechaAlta, email, sintomas } = paciente;
 
@@ -28,7 +28,9 @@ const Paciente = ({ paciente }) => {
         </p>
         <div className='flex justify-between mt-10'>
           <button className="bg-indigo-600 w-1/3 p-2 uppercase text-white font-bold cursor-pointer
-           hover:bg-indigo-500 rounded-md transition-all">Editar</button>
+           hover:bg-indigo-500 rounded-md transition-all"
+           onClick={ () => setPaciente(paciente) }
+           >Editar</button>
            <button className="bg-red-500 w-1/3 p-2 uppercase text-white font-bold cursor-pointer
            hover:bg-red-400 rounded-md transition-all">Eliminar</button>
         </div>
@@ -37,7 +39,8 @@ const Paciente = ({ paciente }) => {
 }
 
 Paciente.propTypes = {
-  paciente: PropTypes.object.isRequired
+  paciente: PropTypes.object.isRequired,
+  setPaciente: PropTypes.func
 }
 
 export default Paciente;

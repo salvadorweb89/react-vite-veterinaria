@@ -1,8 +1,8 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import MsgError from './MsgError';
 
-const Formulario = ({ pacientes,setPacientes }) => {
+const Formulario = ({ pacientes, setPacientes, paciente, setPaciente }) => {
   const [nombreMascota, setNombreMascota] = useState('');
   const [nombrePropietario, setNombrePropietario] = useState('');
   const [email, setEmail] = useState('');
@@ -10,6 +10,18 @@ const Formulario = ({ pacientes,setPacientes }) => {
   const [sintomas, setSintomas] = useState('');
 
   const [error, setError] = useState(false);
+
+  useEffect(() => {
+    if(Object.keys(paciente).length > 0) {
+      setNombreMascota(paciente.nombreMascota);
+      setNombrePropietario(paciente.nombrePropietario);
+      setEmail(paciente.email);
+      setFechaAlta(paciente.fechaAlta);
+      setSintomas(paciente.sintomas);
+    }
+    
+
+  }, [paciente]);
 
   const generateId = () => {
     const rand = Math.random().toString(36).substr(2);
@@ -38,12 +50,30 @@ const Formulario = ({ pacientes,setPacientes }) => {
         nombrePropietario, 
         email, 
         fechaAlta, 
-        sintomas,
-        id: generateId()
+        sintomas
+      }
+      
+      if(paciente.id){
+        // Edición de registro, sustituimos el paciente anterior del state, y volcamos de nuevo en el state con el nuevo valor.
+        valoresPaciente.id = paciente.id;
+        const pacientesUpdated = pacientes.map(pacienteState => pacienteState.id === paciente.id 
+          ? valoresPaciente : pacienteState);
+
+        setPacientes(pacientesUpdated);
+
+        // Reiniciamos el state paciente ya que hemos finalizado con la operación de update.
+        setPaciente({});
+      }
+      else{
+        // Nuevo registro
+        
+        valoresPaciente.id = generateId();
+
+        // Agregamos los valores de paciente al state pacientes mediante spread operator para conservar inmutabilidad
+        setPacientes([...pacientes, valoresPaciente]);
       }
 
-      // Agregamos los valores de paciente al state pacientes mediante spread operator para conservar inmutabilidad
-      setPacientes([...pacientes, valoresPaciente]);
+      
 
       // Reiniciamos el formulario
       setNombreMascota('');
@@ -103,7 +133,8 @@ const Formulario = ({ pacientes,setPacientes }) => {
         </div>
         <div className="mb-5">
           <input type="submit" className="bg-indigo-600 w-full p-2 uppercase text-white font-bold cursor-pointer
-           hover:bg-indigo-500 rounded-md transition-all" value="Agregar paciente" />
+           hover:bg-indigo-500 rounded-md transition-all" 
+           value={paciente.id ? 'Editar paciente' : 'Agregar paciente' } />
         </div>
       </form>
     </div>
@@ -112,7 +143,9 @@ const Formulario = ({ pacientes,setPacientes }) => {
 
 Formulario.propTypes = {
   pacientes: PropTypes.array.isRequired,
-  setPacientes: PropTypes.func.isRequired
+  setPacientes: PropTypes.func.isRequired,
+  paciente: PropTypes.object,
+  setPaciente: PropTypes.func
 }
 
 export default Formulario;
