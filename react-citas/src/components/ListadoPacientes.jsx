@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import Paciente from './Paciente';
-const ListadoPacientes = ({pacientes, setPaciente}) => {
+const ListadoPacientes = ({pacientes, setPaciente, eliminarPaciente}) => {
 
   return (
     <div className="sm:w-full md:w-1/2 lg:w-3/5 md:h-screen md:overflow-y-scroll">
@@ -15,6 +15,7 @@ const ListadoPacientes = ({pacientes, setPaciente}) => {
                 key={paciente.id}
                 paciente={paciente}
                 setPaciente={setPaciente}
+                eliminarPaciente={eliminarPaciente}
               />
             ))}
           </>
@@ -32,7 +33,8 @@ const ListadoPacientes = ({pacientes, setPaciente}) => {
 
 ListadoPacientes.propTypes = {
   pacientes: PropTypes.array,
-  setPaciente: PropTypes.func
+  setPaciente: PropTypes.func,
+  eliminarPaciente: PropTypes.func
 }
 
 export default ListadoPacientes;
