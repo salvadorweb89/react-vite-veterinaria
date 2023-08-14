@@ -7,11 +7,8 @@ function App() {
   const [pacientes, setPacientes] = useState([]); // State para guardar pacientes
   const [paciente, setPaciente] = useState({}); // State para modificar pacientes
 
-  const eliminarPaciente = (id) => {
-    const pacientesUpdated = pacientes.filter((paciente) => {
-      return paciente.id != id;
-    })
-
+  const eliminarPaciente = id => {
+    const pacientesUpdated = pacientes.filter(paciente => paciente.id != id);
     setPacientes(pacientesUpdated);
   }
   
