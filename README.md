@@ -38,6 +38,6 @@ Create .env file specifying desired ports to run app container
 ### Run docker container
 Run 'docker-compose up' to launch docker container and run app in dev mode.
 
-The app should be available in (http://localhost:3000)[http://localhost:3000]
+The app should be available in [http://localhost:3000](http://localhost:3000)
 
 
