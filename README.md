@@ -26,4 +26,16 @@ A live demo of this project is available [here](https://react-vite-veterinaria-s
 
 ![image](https://github.com/salvadorweb89/react-vite-veterinaria/assets/9569430/ee20f0bb-7116-42e2-95af-e89463d5d32d)
 
+***
+
+### How to run
+
+Follow this steps to run and preview this project:
+
+#### Create .env file
+Create .env file specifying desired ports to run app container
+
+### Run docker container
+Run 'docker-compose up' to launch docker container and run app in dev mode.
+
 
