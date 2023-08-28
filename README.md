@@ -20,11 +20,13 @@ A simple React Vite project with the following features:
 
 ### Preview
 
-A live demo of this project is available [here](https://react-vite-veterinaria-salvadorweb89.netlify.app)
+A live demo of this project is available here https://react-vite-veterinaria-salvadorweb89.netlify.app
 
-![image](https://github.com/salvadorweb89/react-vite-veterinaria/assets/9569430/32f7bcbc-fcfa-4547-81e8-b7ac4632ad7d)
+![image](https://github.com/salvadorweb89/react-vite-veterinaria/assets/9569430/45879da3-54f0-4e6e-833e-5db8d5eb4c49)
 
-![image](https://github.com/salvadorweb89/react-vite-veterinaria/assets/9569430/ee20f0bb-7116-42e2-95af-e89463d5d32d)
+
+![image](https://github.com/salvadorweb89/react-vite-veterinaria/assets/9569430/11bee6d3-b249-4edc-bd96-8100ef1fd8e2)
+
 
 ***
 
